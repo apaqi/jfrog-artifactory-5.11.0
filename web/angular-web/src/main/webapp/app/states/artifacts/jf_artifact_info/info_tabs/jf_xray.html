@@ -1,0 +1,32 @@
+<div class="jf-xray-wrapper">
+
+    <div class="alert alert-warning xray-alert" ng-if="jfXray.artifactXrayData.xrayBlocked">
+        <span class="alert-button" ng-if="jfXray.artifactXrayData.xrayBlockReason != 'Artifact not yet scanned'">
+            <a href
+                ng-click="jfXray._doAllowDownload()">
+                <i class="icon-xray-ignore-alert"></i>
+                Allow download
+            </a>
+        </span>
+        <span ng-bind="jfXray.xrayAlertMessage()"></span></div>
+
+    <jf-panel jf-panel-heading="JFrog Xray"
+            ng-if="jfXray.artifactXrayData.xrayIndexStatus"
+            jf-panel-classes="col-md-12">
+
+        <table class="jf-data-table">
+            <tr ng-repeat="(key,value) in jfXray.artifactXrayData">
+                <td ng-if="key === 'xrayIndexStatus'">Status:</td>
+                <td ng-if="key === 'xrayIndexStatus'">{{ value }}</td>
+
+                <td ng-if="key === 'xrayBlockReason' && value">Block Reason:</td>
+                <td ng-if="key === 'xrayBlockReason' && value">{{ value }}</td>
+
+                <td ng-if="key === 'xrayIndexStatusLastUpdatedTimestamp'">Last Status Update:</td>
+                <td ng-if="key === 'xrayIndexStatusLastUpdatedTimestamp'">{{value}}</td>
+
+            </tr>
+        </table>
+    </jf-panel>
+
+</div>

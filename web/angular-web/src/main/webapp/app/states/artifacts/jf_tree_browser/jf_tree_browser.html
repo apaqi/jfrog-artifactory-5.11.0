@@ -1,0 +1,8 @@
+<div class="tree-wrapper">
+    <div class="default-tree-container">
+        <jf-tree api="jfTreeBrowser.treeApi"></jf-tree>
+    </div>
+    <div class="trash-tree-container" ng-show="!jfTreeBrowser.simpleMode && jfTreeBrowser.user.isAdmin() && jfTreeBrowser.isTrashPinned()">
+        <jf-tree api="jfTreeBrowser.treeApi" view-pane-name="trash"></jf-tree>
+    </div>
+</div>
